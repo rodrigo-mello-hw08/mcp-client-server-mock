@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "85aeebd6-9ba8-4a3f-b988-d3f2b183318e",
+		"name": "poc-pessoal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13364808",
+		"_collection_link": "https://orange-zodiac-520069.postman.co/workspace/crescer-27~db04e172-e82f-4244-8bd0-1fc00abd58f7/collection/13364808-85aeebd6-9ba8-4a3f-b988-d3f2b183318e?action=share&source=collection_link&creator=13364808"
+	},
+	"item": [
+		{
+			"name": "mock",
+			"item": [
+				{
+					"name": "get transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/transaction/21212",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"transaction",
+								"21212"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "ask question",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/chat/ask?query=Me de as transacoes para o cpf 04230972023",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"chat",
+								"ask"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Me de as transacoes para o cpf 04230972023"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
