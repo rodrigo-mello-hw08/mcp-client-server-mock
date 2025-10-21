@@ -18,21 +18,6 @@ public class TransactionService {
         this.restClient = restClient;
     }
 
-//    @Tool(description = "Get client transactions by CPF/CNPJ")
-//    public String getTransactions(String cpfCnpj) {
-//        List<Transaction> movimentacoes = Arrays.asList(
-//                new Transaction(new BigDecimal(150), "Pagamento de conta de luz"),
-//                new Transaction(new BigDecimal(200), "Compra no supermercado"),
-//                new Transaction(new BigDecimal(50), "Recarga de celular")
-//        );
-//        ClientTransactions clientTransactions = new ClientTransactions("04230977723", movimentacoes);
-//        try {
-//            return mapper.writeValueAsString(clientTransactions);
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException("Erro ao serializar ClientTransactions para JSON", e);
-//        }
-//    }
-
     @Tool(name = "get_transactions", description = "Get all the transactions from a client based on his cpf number")
     public String getTransactions(String cpfCnpj) {
         ClientTransactions body = restClient.get()
