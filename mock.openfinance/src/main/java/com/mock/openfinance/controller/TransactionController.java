@@ -19,6 +19,7 @@ public class TransactionController {
 
     @GetMapping(path = "/{cpfCnpj}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ClientTransactions> obterMovimentacoesCliente(@PathVariable("cpfCnpj") String cpfCnpj) {
+        System.out.println("CNPJ/CPF recebido: " + cpfCnpj);
         ClientTransactions clientTransactions = service.obterMovimentacoesCliente(cpfCnpj);
         return ResponseEntity.ok(clientTransactions);
     }

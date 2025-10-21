@@ -9,12 +9,12 @@ import java.util.List;
 
 public class TransactionRepository {
 
-    public static ClientTransactions get() {
+    public static ClientTransactions get(String cpfCnpj) {
         List<Transaction> movimentacoes = Arrays.asList(
             new Transaction(new BigDecimal(150), "Pagamento de conta de luz"),
             new Transaction(new BigDecimal(200), "Compra no supermercado"),
             new Transaction(new BigDecimal(50), "Recarga de celular")
         );
-        return new ClientTransactions("04230977723", movimentacoes);
+        return new ClientTransactions(cpfCnpj, movimentacoes);
     }
 }

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 public class TransactionService {
 
     public ClientTransactions obterMovimentacoesCliente(String cpfCnpj) {
-        return TransactionRepository.get();
+        return TransactionRepository.get(cpfCnpj);
     }
 }
