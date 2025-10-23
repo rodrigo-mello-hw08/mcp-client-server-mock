@@ -1,7 +1,8 @@
 CREATE TABLE tb_user (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL
+    email VARCHAR(100) NOT NULL, 
+    cpf VARCHAR(11) NOT NULL UNIQUE
 );
 
 CREATE TABLE tb_transaction (

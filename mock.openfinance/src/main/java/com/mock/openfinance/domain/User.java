@@ -5,23 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_transaction")
+@Table(name = "tb_user")
 @Entity
-public class Transaction {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    private BigDecimal value;
-    private String description;
-    private Date date;
+    private String nome;
+    private String email;
+    private String cpf;
 
 }

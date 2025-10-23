@@ -1,20 +1,19 @@
 package com.mock.openfinance.repository;
 
 import com.mock.openfinance.domain.Transaction;
-import com.mock.openfinance.domain.ClientTransactions;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 
-public class TransactionRepository {
+@Repository
+public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
 
-    public static ClientTransactions get(String cpfCnpj) {
-        List<Transaction> movimentacoes = Arrays.asList(
-            new Transaction(new BigDecimal(150), "Pagamento de conta de luz"),
-            new Transaction(new BigDecimal(200), "Compra no supermercado"),
-            new Transaction(new BigDecimal(50), "Recarga de celular")
-        );
-        return new ClientTransactions(cpfCnpj, movimentacoes);
-    }
+    @Query("SELECT ut.transaction " +
+            "FROM UserTransactions ut " +
+            "WHERE ut.user.cpf = :cpf " +
+            "ORDER BY ut.transaction.date DESC")
+    List<Transaction> encontrarTransacoesPorCpfCnpj(@Param("cpf") String cpf);
 }

@@ -1,6 +1,5 @@
-package com.mock.openfinance.domain;
+package com.mock.openfinance.controller.response;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,17 +10,8 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_transaction")
-@Entity
-public class Transaction {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-
+public class TransactionResponse {
     private BigDecimal value;
     private String description;
     private Date date;
-
 }

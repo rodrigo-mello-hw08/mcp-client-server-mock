@@ -1,6 +1,6 @@
 package com.mock.openfinance.controller;
 
-import com.mock.openfinance.domain.ClientTransactions;
+import com.mock.openfinance.controller.response.ClientTransactionsResponse;
 import com.mock.openfinance.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,9 +18,9 @@ public class TransactionController {
     private TransactionService service;
 
     @GetMapping(path = "/{cpfCnpj}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ClientTransactions> obterMovimentacoesCliente(@PathVariable("cpfCnpj") String cpfCnpj) {
+    public ResponseEntity<ClientTransactionsResponse> obterMovimentacoesCliente(@PathVariable("cpfCnpj") String cpfCnpj) {
         System.out.println("CNPJ/CPF recebido: " + cpfCnpj);
-        ClientTransactions clientTransactions = service.obterMovimentacoesCliente(cpfCnpj);
+        ClientTransactionsResponse clientTransactions = service.obterMovimentacoesCliente(cpfCnpj);
         return ResponseEntity.ok(clientTransactions);
     }
 }
